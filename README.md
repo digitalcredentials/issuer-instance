@@ -44,6 +44,37 @@ npm install
 
 ## Usage
 
+You can use `issuer-core` to help build a standalone VC-API issuer service.
+For example:
+
+```js
+import { IssuerInstance } from '@digitalcredentials/issuer-core'
+import { securityLoader } from '@digitalcredentials/security-document-loader'
+import { Ed25519Signature2020 } from '@digitalcredentials/ed25519-signature-2020'
+import fastify from 'fastify'
+import * as didKey from '@digitalcredentials/did-method-key'
+
+const documentLoader = securityLoader({ fetchRemoteContexts: true }).build()
+
+// load secret key seed from config file, to generate issuer DID
+const didKeyDriver = didKey.driver()
+const {methodFor} = await didKeyDriver.generate({ seed })
+const signingKeyPair = methodFor({ purpose: 'assertionMethod' })
+
+const signingSuite = new Ed25519Signature2020({ key: signingKeyPair })
+
+const issuerInstance = new IssuerInstance({ documentLoader, signingSuite })
+
+const server = fastify(serverOptions)
+
+server.post('/credentials/issue', async (req, res) => {
+  // parse the incoming body according to VC-API specs, validate via JSON Schema ...
+  const {credential, options} = parseBody(req)
+  
+  const signedCredential = await issuerInstance.issueCredential({ credential, options })
+  // return it in the response etc
+})
+```
 
 ## Contribute
 
