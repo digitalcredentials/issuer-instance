@@ -16,10 +16,15 @@
 
 ## Background
 
-See VC API [issuing spec](https://w3c-ccg.github.io/vc-api/#issuing) reference.
+A VC-API Issuer service can host one or more issuer _instances_. 
 
-## Security
+An instance is a per-usecase logical unit that configures several key properties:
+- A set of cryptographic suites to be supported for this usecase (for example, `Ed25519Signature2020` suite).
+- An issuing DID and corresponding signing keys (that match the appropriate crypto suite above)
+- A set of `@contexts` supported by this usecase (this can be loosely or strictly filtered by the credential type you intend to issue)
+- (For advanced VC API endpoints such as the Exchange endpoints) A set of business rules appropriate to your use case (rules for refreshing/re-issuing, rules for exchanging credentials, etc).
 
+See also VC API [issuing spec](https://w3c-ccg.github.io/vc-api/#issuing) reference.
 
 ## Install
 
