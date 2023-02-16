@@ -1,4 +1,4 @@
-# Issuer _(@digitalcredentials/issuer-core)_
+# Issuer Service Helper Library _(@digitalcredentials/issuer-core)_
 
 [![Build status](https://img.shields.io/github/actions/workflow/status/digitalcredentials/issuer-core/main.yml?branch=main)](https://github.com/digitalcredentials/issuer-core/actions?query=workflow%3A%22Node.js+CI%22)
 [![NPM Version](https://img.shields.io/npm/v/@digitalcredentials/issuer-core.svg)](https://npm.im/@digitalcredentials/issuer-core)
