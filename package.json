@@ -1,6 +1,6 @@
 {
   "name": "@digitalcredentials/issuer-core",
-  "description": "VC API Issuer library.",
+  "description": "VC API issuer service helper library (for Node.js / Typescript).",
   "version": "1.0.5",
   "scripts": {
     "build": "npm run clear && tsc --declaration --declarationDir dist/ --diagnostics -p tsconfig.json && tsc -p tsconfig.esm.json",
