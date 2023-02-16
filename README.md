@@ -3,7 +3,7 @@
 [![Build status](https://img.shields.io/github/actions/workflow/status/digitalcredentials/issuer-core/main.yml?branch=main)](https://github.com/digitalcredentials/issuer-core/actions?query=workflow%3A%22Node.js+CI%22)
 [![NPM Version](https://img.shields.io/npm/v/@digitalcredentials/issuer-core.svg)](https://npm.im/@digitalcredentials/issuer-core)
 
-> VC API Issuer library.
+> VC API issuer service helper library (for Node.js / Typescript).
 
 ## Table of Contents
 
@@ -16,13 +16,14 @@
 
 ## Background
 
+See VC API [issuing spec](https://w3c-ccg.github.io/vc-api/#issuing) reference.
 
 ## Security
 
 
 ## Install
 
-- Node.js 16+ is recommended.
+- Node.js 18+ is recommended.
 
 ### NPM
 
