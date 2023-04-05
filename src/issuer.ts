@@ -1,4 +1,4 @@
-import vc from '@digitalcredentials/vc'
+import {issue} from '@digitalcredentials/vc'
 
 declare interface IDocumentLoaderResult {
   contextUrl?: string
@@ -10,12 +10,10 @@ type IDocumentLoader = (url: string) => Promise<IDocumentLoaderResult>
 
 export class IssuerInstance {
   public documentLoader: IDocumentLoader
-  public issuerDid: string
   public signingSuite: any
 
   constructor({
     documentLoader,
-    issuerDid,
     signingSuite
   }: {
     documentLoader: IDocumentLoader
@@ -35,10 +33,11 @@ export class IssuerInstance {
     // this library attaches the signature on the original object, so make a copy
     const credCopy = JSON.parse(JSON.stringify(credential))
     try {
-      return vc.issue({
+      return issue({
         credential: credCopy,
         suite: this.signingSuite,
-        documentLoader: this.documentLoader
+        documentLoader: this.documentLoader,
+        ...options
       })
     } catch (e) {
       console.error(e)
